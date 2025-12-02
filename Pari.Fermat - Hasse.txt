@@ -1,0 +1,138 @@
+
+
+                                 CODES - PARI/GP
+                                _________________
+
+             
+
+1) Programme déterminant les nombres premiers exceptionnels pour un nombre premier p donné.
+
+           
+Soit p un nombre premier impair. En  effectuant l'instruction ff(p), on obtient 
+la liste des nombres premiers exceptionnels pour p. Elle est donnée dans le vecteur E.
+
+
+ff(p)=\
+m=floor((1/p)*((p-1)^4/6-1));\
+w=[];\
+for(k=2,m,\
+q=k*p+1;\
+if(isprime(q),\
+g=znprimroot(q);\
+v=vector(k);\
+for(i=1,k,v[i]=g^(p*i));\
+for(j=2,p-1,\
+for(i=1,j-1,\
+u=prod(t=1,k,(v[t]*g^i+g^j)^k-1);\
+if(u<>Mod(0,q),w=concat(w,[q]),))),));E=Set(w)
+
+
+Exemple :  avec le code ff(13), on obtient 
+
+                            E=[53, 79, 131, 157, 313, 547].
+
+
+2) Programmes permettant de vérifier la démonstration du corollaire 1
+
+          
+2.1) Ce programme fournit la liste des congruences des nombres premiers 
+     r modulo p^2 telles que p divise r+1 et que r^(p-1) ne soit pas congru 
+     à 1 modulo p^2. 
+   
+L’instruction est list(p). Le résultat est donné dans le vecteur R.
+
+list(p)=\
+R=[];\
+for(r=1,p^2-1,\
+if((Mod(r,p)==Mod(-1,p))&(Mod(r^(p-1),p^2)<>Mod(1,p^2)),R=concat(R,[r]),));R
+
+
+Exemple : avec le code list(5), on obtient le vecteur 
+
+                                        R=[4,9,14,19].
+
+
+2.2) Pour chaque composante r du vecteur R, ce programme détermine les classes des nombres 
+     premiers q modulo p^2 qui sont dans l’ensemble S_3, pour p=5 et p=7.
+     
+L’instruction est cor(p,r). Le résultat est donné dans le vecteur S.
+
+                         
+cor(p,r)=\
+S=[];\
+for(q=1,p^2-1,\
+if((q%p<>0)&(Mod(q^2,p)<>Mod(1,p))&(Mod(q^3,p)<>Mod(1,p)),\
+for(xx=0,p^2-1,\
+tt=-(Mod(xx,p^2)^p+r)/q;\
+if((tt^(p-1)==Mod(1,p^2))||(Mod(q,p^2)^(p-1)==Mod(1,p^2)),S=concat(S,[q]);break,)),));S=Set(S)
+
+
+Exemple : avec le code cor(5,4) on obtient le vecteur 
+
+                                       S=[2,3,7,18,22,23].
+
+                       
+3) Programmes  permettant de vérifier la proposition 5
+
+    
+3.1) Soient p un nombre premier impair et r un entier, pas nécessairement premier. 
+     Ce programme détermine la densité des nombres premiers q tels que la courbe
+     C_q d'équation
+    
+                        x^p+qy^p+rz^p=0 
+
+     n'ait pas d'obstruction locale en p et que q soit un générateur modulo p. 
+     
+     
+L'instruction est den(p,r). La densité cherchée est U.
+
+
+den(p,r)=\
+S=[];\
+for(q=1,p^2-1,\
+if((q%p<>0)&(znorder(Mod(q,p))==p-1),\
+for(xx=0,p^2-1,\
+tt=-(Mod(xx,p^2)^p+r)/q;\
+if((tt^(p-1)==Mod(1,p^2))||(Mod(q,p^2)^(p-1)==Mod(1,p^2)),S=concat(S,[q]);break,)),));\
+U=length(Set(S))/eulerphi(p^2);
+
+
+Exemple : supposons  p=5 et r=4. Avec l'instruction den(5,4), on trouve 
+
+                                     U=3/10.
+
+
+3.2) Soient m et n des entiers avec m\geq 5 et n\geq m. Ce programme affiche les nombres   
+     premiers p compris entre m et n et pour chaque p la densité des nombres premiers q tels 
+     que la courbe d'équation 
+     
+
+                        x^p+qy^p+(p-1)z^p=0 
+     
+   n'ait pas d'obstruction locale en p et que q soit un générateur modulo p. Pour l'utiliser
+   il faut auparavant charger le programme den. Le résultat est donné dans le vecteur R. Ses
+   composantes sont de la forme [p,s], où s est la densité correspondante.    
+
+   À la fin du programme, si V est nul, cela signifie que tous les nombres p entre m et n 
+   satisfont la condition delta(S_(p-2))>1/p.
+      
+L'instruction est res(m,n).
+
+
+res(m,n)=\
+R=[];\
+forprime(p=m,n,\
+U=den(p,p-1);\
+if(U>1/p,\
+R=concat(R,[[p,U]]),));R;\
+if(isprime(m),V=length(R)-(primepi(n)-primepi(m)+1),V=length(R)-(primepi(n)-primepi(m)));V;
+
+
+
+
+Exemple :  avec le code res(5,20) on trouve 
+
+        R=[[5, 3/10], [7, 2/7], [11, 12/55], [13, 3/13], [17, 13/34], [19, 13/57] 
+ 
+et on a V=0.
+
