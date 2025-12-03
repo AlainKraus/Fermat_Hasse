@@ -36,9 +36,8 @@ Exemple :  avec le code ff(13), on obtient
 
           
 2.1) Ce programme fournit la liste des congruences modulo p^2 des nombres premiers 
-     r telles que p divise r+1 et que r^(p-1) ne soit pas congru 
-     à 1 modulo p^2. 
-   
+     r telles que p divise r+1 et que r^(p-1) ne soit pas congru à 1 modulo p^2.
+    
 L’instruction est list(p). Le résultat est donné dans le vecteur R.
 
 list(p)=\
