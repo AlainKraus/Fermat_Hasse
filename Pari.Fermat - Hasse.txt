@@ -61,7 +61,7 @@ cor(p,r)=\
 S=[];\
 for(q=1,p^2-1,\
 if((q%p<>0)&(Mod(q^2,p)<>Mod(1,p))&(Mod(q^3,p)<>Mod(1,p)),\
-for(xx=0,p^2-1,\
+for(xx=0,p-1,\
 tt=-(Mod(xx,p^2)^p+r)/q;\
 if((tt^(p-1)==Mod(1,p^2))||(Mod(q,p^2)^(p-1)==Mod(1,p^2)),S=concat(S,[q]);break,)),));S=Set(S)
 
@@ -90,7 +90,7 @@ den(p,r)=\
 S=[];\
 for(q=1,p^2-1,\
 if((q%p<>0)&(znorder(Mod(q,p))==p-1),\
-for(xx=0,p^2-1,\
+for(xx=0,p-1,\
 tt=-(Mod(xx,p^2)^p+r)/q;\
 if((tt^(p-1)==Mod(1,p^2))||(Mod(q,p^2)^(p-1)==Mod(1,p^2)),S=concat(S,[q]);break,)),));\
 U=length(Set(S))/eulerphi(p^2);
