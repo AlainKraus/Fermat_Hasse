@@ -110,7 +110,7 @@ Exemple : supposons  p=5 et r=4. Avec l'instruction den(5,4), on trouve
      
    n'ait pas d'obstruction locale en p et que q soit un générateur modulo p. Pour l'utiliser
    il faut auparavant charger le programme den. Le résultat est donné dans le vecteur R. Ses
-   composantes sont de la forme [p,s], où s est la densité correspondante.    
+   composantes sont de la forme [p,U], où U est la densité correspondante.    
 
    À la fin du programme, si V est nul, cela signifie que tous les nombres p entre m et n 
    satisfont la condition delta(S_(p-2))>1/p.
