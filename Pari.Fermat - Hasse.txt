@@ -32,7 +32,7 @@ Exemple :  avec le code ff(13), on obtient
                             E=[53, 79, 131, 157, 313, 547].
 
 
-2) Programmes permettant de vérifier l'exemple 2.5 et la démonstration du corollaire 1
+2) Programmes permettant de vérifier l'exemple 2.4 et la démonstration du corollaire 1
 
           
 2.1) Ce programme fournit la liste des congruences modulo p^2 des nombres premiers 
