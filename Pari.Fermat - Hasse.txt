@@ -72,8 +72,9 @@ Exemple : avec le code cor(5,9), on obtient le vecteur
 
 2.3) Ce programme détermine l'ensemble des nombres premiers, plus petits qu'une borne j, qui appartiennent 
      à l'ensemble T3 intervenant dans l'exemple 2.4. On utilise dans le programme l'information obtenue avec 
-     l'instruction cor(5,9). Le résultat est explicité dans le vecteur R et le nombre de composantes de R 
-     est affiché.
+     l'instruction cor(5,9), car 109 est congru à 9 modulo 25.  Le résultat est explicité dans le vecteur R 
+     et le nombre de composantes de R est affiché.
+     
                   
 L'instruction est T3(j).
 
