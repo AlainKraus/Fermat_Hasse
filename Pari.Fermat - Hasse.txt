@@ -66,12 +66,36 @@ tt=-(Mod(xx,p^2)^p+r)/q;\
 if((tt^(p-1)==Mod(1,p^2))||(Mod(q,p^2)^(p-1)==Mod(1,p^2)),S=concat(S,[q]);break,)),));S=Set(S)
 
 
-Exemple : avec le code cor(5,9) on obtient le vecteur 
+Exemple : avec le code cor(5,9), on obtient le vecteur 
 
                                        S=[2,7,8,12,13,17,18,23].
 
+2.3) Ce programme détermine la liste des nombres premiers plus petits qu'une borne j, qui appartiennent 
+     à l'ensemble T3 intervenant dans l'exemple 2.4.  Cette liste est explicitée dans le vecteur R et le
+     nombre de composantes de R est affiché.
+     
+
+L'instruction est T3(j).
+
+T3(j)=\
+F=X^5-109;\
+M=bnfinit(F);\
+R=[];\
+forprime(q=2,j,\
+if((Mod(q^2,25)==Mod(4,25))||(Mod(q^2,25)==Mod(49,25))||(Mod(q^2,25)==Mod(64,25))||(Mod(q^2,25)==Mod(144,25)),\
+id=idealprimedec(M,q);\
+u=bnfisprincipal(M,id[1]);\
+if(u[1]<>[0]~, R=concat(R,[q]),),));R;length(R)
+
+
+Exemple : avec le code T3(200), il s'affiche 15 qui est le nombre de composantes du vecteur R ci-dessous:
+
+R=[7, 17, 23, 37, 43, 73, 83, 107, 113, 127, 137, 157, 163, 167, 193].
+
+Avec le code T3(10^6), on trouve 25109 comme nombre de composantes.
+
                        
-3) Programmes  permettant de vérifier la proposition 5
+3) Programmes  permettant de vérifier la proposition 5.
 
     
 3.1) Soient p un nombre premier impair et r un entier, pas nécessairement premier. 
