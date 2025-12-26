@@ -153,7 +153,7 @@ if(isprime(m),V=length(R)-(primepi(n)-primepi(m)+1),V=length(R)-(primepi(n)-prim
 
 
 
-Exemple :  avec le code res(5,20) on trouve 
+Exemple :  avec le code res(5,20), on trouve 
 
         R=[[5, 3/10], [7, 2/7], [11, 12/55], [13, 3/13], [17, 13/34], [19, 13/57] 
  
