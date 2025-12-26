@@ -5,7 +5,7 @@
 
              
 
-1) Programme déterminant les nombres premiers exceptionnels pour un nombre premier p donné.
+1) Programme déterminant l'ensemble des nombres premiers exceptionnels pour un nombre premier p donné.
 
            
 Soit p un nombre premier impair. En  effectuant l'instruction ff(p), on obtient 
