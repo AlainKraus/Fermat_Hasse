@@ -126,22 +126,19 @@ Exemple : supposons  p=5 et r=4. Avec l'instruction den(5,4), on trouve
                                      U=3/10.
 
 
-3.2) Soient m et n des entiers avec m\geq 5 et n\geq m. Ce programme affiche les nombres   
-     premiers p compris entre m et n et pour chaque p la densité des nombres premiers q tels 
-     que la courbe d'équation 
+3.2) Soient m et n des entiers avec m\geq 5 et n\geq m. Ce programme détermine pour chaque  
+     nombre premier p compris entre m et n, la densité U des nombres premiers q tels que la 
+     courbe d'équation 
      
-
                         x^p+qy^p+(p-1)z^p=0 
      
-   n'ait pas d'obstruction locale en p et que q soit un générateur modulo p. Pour l'utiliser
+   n'ait pas d'obstruction locale en p et que q soit un générateur modulo p. Pour l'utiliser,
    il faut auparavant charger le programme den. Le résultat est donné dans le vecteur R. Ses
-   composantes sont de la forme [p,U], où U est la densité correspondante.    
-
-   À la fin du programme, si V est nul, cela signifie que tous les nombres p entre m et n 
-   satisfont la condition delta(S_(p-2))>1/p.
-      
+   composantes sont de la forme [p,U], où U est la densité correspondante. Seules sont affichées
+   dans R les composantes [p,U] si l'on a U>1/p. À la fin du programme, si V est nul, cela signifie
+   que tous les nombres premiers p entre m et n satisfont la condition delta(S_(p-2))>1/p.
+  
 L'instruction est res(m,n).
-
 
 res(m,n)=\
 R=[];\
@@ -150,8 +147,6 @@ U=den(p,p-1);\
 if(U>1/p,\
 R=concat(R,[[p,U]]),));R;\
 if(isprime(m),V=length(R)-(primepi(n)-primepi(m)+1),V=length(R)-(primepi(n)-primepi(m)));V;
-
-
 
 
 Exemple :  avec le code res(5,20), on trouve 
