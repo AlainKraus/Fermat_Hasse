@@ -85,8 +85,8 @@ R=[];\
 forprime(q=2,j,\
 if((Mod(q^2,25)==Mod(4,25))||(Mod(q^2,25)==Mod(49,25))||(Mod(q^2,25)==Mod(64,25))||(Mod(q^2,25)==Mod(144,25)),\
 id=idealprimedec(M,q);\
-u=bnfisprincipal(M,id[1]);\
-if(u[1]<>[0]~, R=concat(R,[q]),),));R;length(R)
+u=!bnfisprincipal(bnf,id[1],0);\
+if(u==0, R=concat(R,[q]),),));R;length(R)
 
 
 Exemple : avec le code T3(200), il s'affiche 15 qui est le nombre de composantes du vecteur R ci-dessous:
