@@ -132,7 +132,7 @@ Exemple : supposons  p=5 et r=4. Avec l'instruction den(5,4), on trouve
                           x^p+qy^p+(p-1)z^p=0 
     
     n'ait pas d'obstruction locale en p et que q soit un générateur modulo p. Pour chaque nombre premier p 
-    compris entre m et n, le programme den(p,p-1) ci-dessus permet de calculer U. 
+    compris entre m et n, l'instruction den(p,p-1) ci-dessus permet de calculer U. 
 
     Ce programme détermine la liste des couples [p,U] tels que l'on ait U>1/p. Le résultat est donné dans le
     vecteur R dont les composantes sont les [p,U]. À la fin du programme, si V est nul, cela signifie que tous 
