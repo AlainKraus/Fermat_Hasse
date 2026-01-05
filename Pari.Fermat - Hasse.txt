@@ -126,18 +126,16 @@ Exemple : supposons  p=5 et r=4. Avec l'instruction den(5,4), on trouve
                                      U=3/10.
 
 
-3.2) Soient m et n des entiers avec m\geq 5 et n\geq m. Ce programme détermine pour chaque  
-     nombre premier p compris entre m et n, la densité U des nombres premiers q tels que la 
-     courbe d'équation 
-     
-                        x^p+qy^p+(p-1)z^p=0 
-     
-   n'ait pas d'obstruction locale en p et que q soit un générateur modulo p. Pour l'utiliser,
-   il faut auparavant charger le programme den. Le résultat est donné dans le vecteur R. Ses
-   composantes sont de la forme [p,U], où U est la densité correspondante. Seules sont affichées
-   dans R les composantes [p,U] si l'on a U>1/p. À la fin du programme, si V est nul, cela signifie
-   que tous les nombres premiers p entre m et n satisfont la condition delta(S_(p-2))>1/p.
-  
+3.2) Soient m et n des entiers avec m\geq 5 et n\geq m.  Soient p un nombre premier p compris 
+     entre m et n, et U la densité des nombres premiers q tels que la courbe d'équation 
+    
+                          x^p+qy^p+(p-1)z^p=0 
+    
+    n'ait pas d'obstruction locale en p et que q soit un générateur modulo p. Pour chaque nombre premier p 
+    compris entre m et n, le programme den(p,p-1) ci-dessus permet de calculer U. Dans le cas où l'on a U>1/p,
+    ce programme détermine le vecteur R dont les composantes sont les [p,U]. À la fin du programme, si V est nul, 
+    cela signifie que tous les nombres premiers p entre m et n satisfont la condition delta(S_(p-2))>1/p.
+    
 L'instruction est res(m,n).
 
 res(m,n)=\
