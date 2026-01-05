@@ -85,7 +85,7 @@ R=[];\
 forprime(q=2,j,\
 if((Mod(q^2,25)==Mod(4,25))||(Mod(q^2,25)==Mod(49,25))||(Mod(q^2,25)==Mod(64,25))||(Mod(q^2,25)==Mod(144,25)),\
 id=idealprimedec(M,q);\
-u=!bnfisprincipal(bnf,id[1],0);\
+u=!bnfisprincipal(M,id[1],0);\
 if(u==0, R=concat(R,[q]),),));R;length(R)
 
 
