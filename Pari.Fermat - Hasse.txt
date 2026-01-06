@@ -4,13 +4,10 @@
                                 _________________
 
              
-
 1) Programme déterminant l'ensemble des nombres premiers exceptionnels pour un nombre premier p donné.
-
-           
+         
 Soit p un nombre premier impair. En  effectuant l'instruction ff(p), on obtient 
 la liste des nombres premiers exceptionnels pour p. Elle est donnée dans le vecteur E.
-
 
 ff(p)=\
 m=floor((1/p)*((p-1)^4/6-1));\
@@ -25,7 +22,6 @@ for(j=2,p-1,\
 for(i=1,j-1,\
 u=prod(t=1,k,(v[t]*g^i+g^j)^k-1);\
 if(u<>Mod(0,q),w=concat(w,[q]),))),));E=Set(w)
-
 
 Exemple :  avec le code ff(13), on obtient 
 
@@ -45,7 +41,6 @@ R=[];\
 for(r=1,p^2-1,\
 if((Mod(r,p)==Mod(-1,p))&(Mod(r^(p-1),p^2)<>Mod(1,p^2)),R=concat(R,[r]),));R
 
-
 Exemple : avec le code list(5), on obtient le vecteur 
 
                                         R=[4,9,14,19].
@@ -55,8 +50,7 @@ Exemple : avec le code list(5), on obtient le vecteur
      premiers q modulo p^2 qui sont dans l’ensemble S_3, pour p=5 et p=7.
      
 L’instruction est cor(p,r). Le résultat est donné dans le vecteur S.
-
-                         
+                        
 cor(p,r)=\
 S=[];\
 for(q=1,p^2-1,\
@@ -64,7 +58,6 @@ if((q%p<>0)&(Mod(q^2,p)<>Mod(1,p))&(Mod(q^3,p)<>Mod(1,p)),\
 for(xx=0,p-1,\
 tt=-(Mod(xx,p^2)^p+r)/q;\
 if((tt^(p-1)==Mod(1,p^2))||(Mod(q,p^2)^(p-1)==Mod(1,p^2)),S=concat(S,[q]);break,)),));S=Set(S)
-
 
 Exemple : avec le code cor(5,9), on obtient le vecteur 
 
@@ -74,8 +67,7 @@ Exemple : avec le code cor(5,9), on obtient le vecteur
      à l'ensemble T3 intervenant dans l'exemple 2.4. On utilise dans le programme l'information obtenue avec 
      l'instruction cor(5,9), car 109 est congru à 9 modulo 25.  Le résultat est explicité dans le vecteur R 
      et le nombre de composantes de R est affiché.
-     
-                  
+                     
 L'instruction est T3(j).
 
 T3(j)=\
@@ -87,7 +79,6 @@ if((Mod(q^2,25)==Mod(4,25))||(Mod(q^2,25)==Mod(49,25))||(Mod(q^2,25)==Mod(64,25)
 id=idealprimedec(M,q);\
 u=!bnfisprincipal(M,id[1],0);\
 if(u==0, R=concat(R,[q]),),));R;length(R)
-
 
 Exemple : avec le code T3(200), il s'affiche 15 qui est le nombre de composantes du vecteur R ci-dessous:
 
@@ -106,10 +97,8 @@ Avec le code T3(10^6), on trouve 25109 comme nombre de composantes.
                         x^p+qy^p+rz^p=0 
 
      n'ait pas d'obstruction locale en p et que q soit un générateur modulo p. 
-     
-     
+          
 L'instruction est den(p,r). La densité cherchée est U.
-
 
 den(p,r)=\
 S=[];\
@@ -119,7 +108,6 @@ for(xx=0,p-1,\
 tt=-(Mod(xx,p^2)^p+r)/q;\
 if((tt^(p-1)==Mod(1,p^2))||(Mod(q,p^2)^(p-1)==Mod(1,p^2)),S=concat(S,[q]);break,)),));\
 U=length(Set(S))/eulerphi(p^2);
-
 
 Exemple : supposons  p=5 et r=4. Avec l'instruction den(5,4), on trouve 
 
@@ -147,7 +135,6 @@ U=den(p,p-1);\
 if(U>1/p,\
 R=concat(R,[[p,U]]),));R;\
 if(isprime(m),V=length(R)-(primepi(n)-primepi(m)+1),V=length(R)-(primepi(n)-primepi(m)));V;
-
 
 Exemple :  avec le code res(5,20), on trouve 
 
