@@ -29,8 +29,7 @@ Exemple :  avec le code ff(13), on obtient
 
 
 2) Programmes permettant de vérifier l'exemple 2.4 et la démonstration du corollaire 1
-
-          
+         
 2.1) Ce programme fournit la liste des congruences modulo p^2 des nombres premiers 
      r telles que p divise r+1 et que r^(p-1) ne soit pas congru à 1 modulo p^2.
     
@@ -44,7 +43,6 @@ if((Mod(r,p)==Mod(-1,p))&(Mod(r^(p-1),p^2)<>Mod(1,p^2)),R=concat(R,[r]),));R
 Exemple : avec le code list(5), on obtient le vecteur 
 
                                         R=[4,9,14,19].
-
 
 2.2) Pour chaque composante r du vecteur R, ce programme détermine les classes des nombres 
      premiers q modulo p^2 qui sont dans l’ensemble S_3, pour p=5 et p=7.
@@ -88,8 +86,7 @@ Avec le code T3(10^6), on trouve 25109 comme nombre de composantes.
 
                        
 3) Programmes  permettant de vérifier la proposition 5.
-
-    
+  
 3.1) Soient p un nombre premier impair et r un entier, pas nécessairement premier. 
      Ce programme détermine la densité des nombres premiers q tels que la courbe
      C_q d'équation
@@ -112,7 +109,6 @@ U=length(Set(S))/eulerphi(p^2);
 Exemple : supposons  p=5 et r=4. Avec l'instruction den(5,4), on trouve 
 
                                      U=3/10.
-
 
 3.2) Soient m et n des entiers avec m\geq 5 et n\geq m.  Soient p un nombre premier compris 
      entre m et n, et U la densité des nombres premiers q tels que la courbe d'équation 
